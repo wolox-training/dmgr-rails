@@ -40,6 +40,9 @@ group :development, :test do
   gem 'capybara', '~> 2.13'
   gem 'selenium-webdriver'
   gem 'rubocop', '0.58.2'
+end
+
+group :test do
   gem 'rspec'
 end
 
