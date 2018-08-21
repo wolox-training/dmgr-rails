@@ -1,5 +1,4 @@
-# frozen_string_literal: true
-
+#app/authentication/authenticable_entity.rb
 class AuthenticableEntity
   MAXIMUM_USEFUL_DATES     = 30.days
   EXPIRATION_DATES         = 2.days

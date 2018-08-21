@@ -1,5 +1,3 @@
-# frozen_string_literal: true
-
 # app/authentication/authentication_manager.rb
 class AuthenticationManager
   NOT_AUTH_CODE = 1

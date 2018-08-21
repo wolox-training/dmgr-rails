@@ -1,5 +1,4 @@
-# frozen_string_literal: true
-
+# app/authentication/authentication_decoded_token.rb
 class AuthenticationDecodedToken < HashWithIndifferentAccess
   def expired?
     return false unless self[:expiration_date].present?

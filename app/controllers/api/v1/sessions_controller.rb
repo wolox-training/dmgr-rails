@@ -1,8 +1,6 @@
-# frozen_string_literal: true
-
 module Api
   module V1
-    class SessionsController < ApplicationController
+    class SessionsController < ApiController
       skip_before_action :current_user, :authenticate_request, except: [:renew, :invalidate_all]
 
       def create
