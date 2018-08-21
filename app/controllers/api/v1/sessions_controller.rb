@@ -1,7 +1,9 @@
+# frozen_string_literal: true
+
 module Api
   module V1
     class SessionsController < ApiController
-      skip_before_action :current_user, :authenticate_request, except: [:renew, :invalidate_all]
+      skip_before_action :current_user, :authenticate_request, except: %i[:renew :invalidate_all]
 
       def create
         if authenticated_user?
@@ -35,7 +37,7 @@ module Api
         if current_user.save
           head :ok
         else
-          render json: { error: 'Error invalidating all tokens' }, status: 500
+          render json: { error: 'Error invalidating all tokens' }, status: :internal_server_error
         end
       end
 

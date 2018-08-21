@@ -1,3 +1,5 @@
+# frozen_string_literal: true
+
 # app/authentication/authentication_manager.rb
 class AuthenticationManager
   NOT_AUTH_CODE = 1
@@ -14,7 +16,7 @@ class AuthenticationManager
   end
 
   def current_user
-    return nil unless decoded_auth_token.present?
+    return nil if decoded_auth_token.blank?
     @current_user ||= User.find_by(id: decoded_auth_token[:user_id])
   end
 
@@ -65,16 +67,16 @@ class AuthenticationManager
   end
 
   def auth_token_warning_expiration_date_reached?
-    decoded_auth_token && decoded_auth_token.warning_expiration_date_reached?
+    decoded_auth_token&.warning_expiration_date_reached?
   end
 
   def auth_token_expired?
-    decoded_auth_token && decoded_auth_token.expired?
+    decoded_auth_token&.decoded_auth_token.expired?
   end
 
   def authorization_header
     return @authorization_header if defined? @authorization_header
-    return nil unless headers['Authorization'].present?
+    return nil if headers['Authorization'].blank?
     @authorization_header = headers['Authorization'].split(' ').last
   end
 end

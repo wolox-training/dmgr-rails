@@ -1,3 +1,5 @@
+# frozen_string_literal: true
+
 # app/authentication/authentication_unique_token.rb
 class AuthenticationUniqueToken
   class << self

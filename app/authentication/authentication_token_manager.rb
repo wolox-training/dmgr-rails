@@ -1,3 +1,5 @@
+# frozen_string_literal: true
+
 # app/authentication/authentication_token_manager.rb
 class AuthenticationTokenManager
   class << self

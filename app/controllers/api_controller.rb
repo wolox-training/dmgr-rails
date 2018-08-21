@@ -1,3 +1,5 @@
+# frozen_string_literal: true
+
 # app/controllers/api_controller.rb
 class ApiController < ApplicationController
   rescue_from ActionController::ParameterMissing, with: :render_nothing_bad_req
@@ -28,9 +30,9 @@ class ApiController < ApplicationController
   # This is a before action method. Returns false to stop from executing the other
   # before action methods when it fails
   def format_authentication_data(data)
-    return unless data.present?
+    return if data.blank?
     response.headers.merge!(data[:headers]) if data[:headers].present?
-    return unless data[:body].present?
+    return if data[:body].blank?
     render json: data[:body], status: status_for_response(data[:code])
     false
   end
