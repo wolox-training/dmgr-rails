@@ -12,7 +12,7 @@ describe Book do
     end
 
     %i[genre author image title publisher year].each do |field|
-      context 'When the ' + field.to_s + 'is nil' do
+      context "When the #{field.to_s} is nil" do
         it 'builds an invalid book' do
           book = build(:book, field => nil)
           expect(book).to be_invalid
