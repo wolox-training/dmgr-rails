@@ -62,7 +62,7 @@ RSpec.configure do |config|
   # config.filter_gems_from_backtrace("gem name")
 
   # enable render views
-  config.render_views
+  # config.render_views
 end
 
 Shoulda::Matchers.configure do |config|
