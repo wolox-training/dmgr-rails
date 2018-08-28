@@ -5,7 +5,9 @@ class BookShowSerializer < ActiveModel::Serializer
   attribute :image, key: :image_url
 
   has_many :rent, key: :actual_rent, serializer: BookRentSerializer do
-    @lastRent = object.rent.last
-    @lastRent if Time.zone.now > @lastRent.from && Time.zone.now < @lastRent.to
+    @last_rent = object.rent.last
+    if (Time.zone.now > @last_rent.from && Time.zone.now < @last_rent.to) then
+       @last_rent
+    end
   end
 end
