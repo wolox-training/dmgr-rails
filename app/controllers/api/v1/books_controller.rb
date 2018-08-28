@@ -1,7 +1,8 @@
+# frozen_string_literal: true
+
 module Api
   module V1
     class BooksController < Api::V1::ApiController
-
       include Wor::Paginate
 
       def index
