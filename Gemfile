@@ -35,26 +35,26 @@ gem 'jbuilder', '~> 2.5'
 # Use Capistrano for deployment
 # gem 'capistrano-rails', group: :development
 
-gem 'versionist'
+gem 'versionist', '1.7.0'
 
-gem 'jwt'
+gem 'jwt', '2.1.0'
 
 gem 'active_model_serializers', '~> 0.10.0'
-gem 'wor-paginate'
+gem 'wor-paginate', '0.1.3'
 
 group :development, :test do
   # Call 'byebug' anywhere in the code to stop execution and get a debugger
   gem 'byebug', platforms: %i[mri mingw x64_mingw]
   # Adds support for Capybara system testing and selenium driver
   gem 'capybara', '~> 2.13'
-  gem 'database_cleaner'
-  gem 'devise'
-  gem 'factory_bot'
-  gem 'factory_bot_rails'
-  gem 'faker'
+  gem 'database_cleaner', '1.7.0'
+  gem 'devise', '4.5.0'
+  gem 'factory_bot', '~> 4.11.0'
+  gem 'factory_bot_rails', '4.11.0'
+  gem 'faker', '1.9.1'
   gem 'rspec-rails', '~> 3.7'
   gem 'rubocop', '0.58.2'
-  gem 'selenium-webdriver'
+  gem 'selenium-webdriver', '3.14.0'
   gem 'shoulda-matchers', '~> 3.1'
 end
 
@@ -65,7 +65,7 @@ group :development do
   gem 'web-console', '>= 3.3.0'
   # Spring speeds up development by keeping your application running in
   # the background. Read more: https://github.com/rails/spring
-  gem 'spring'
+  gem 'spring', '2.0.2'
   gem 'spring-watcher-listen', '~> 2.0.0'
 end
 
