@@ -1,3 +1,5 @@
+# frozen_string_literal: true
+
 RSpec.shared_context 'Authenticated User' do
   let(:user) { create(:user) }
   let!(:access_data) { AuthenticableEntity.generate_access_token(user) }
