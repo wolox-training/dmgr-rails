@@ -41,6 +41,7 @@ gem 'jwt', '2.1.0'
 
 gem 'active_model_serializers', '~> 0.10.0'
 gem 'wor-paginate', '0.1.3'
+gem 'devise', '4.5.0'
 
 group :development, :test do
   # Call 'byebug' anywhere in the code to stop execution and get a debugger
@@ -48,7 +49,6 @@ group :development, :test do
   # Adds support for Capybara system testing and selenium driver
   gem 'capybara', '~> 2.13'
   gem 'database_cleaner', '1.7.0'
-  gem 'devise', '4.5.0'
   gem 'factory_bot', '~> 4.11.0'
   gem 'factory_bot_rails', '4.11.0'
   gem 'faker', '1.9.1'
