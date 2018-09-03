@@ -53,8 +53,10 @@ describe Api::V1::BooksController, type: :controller do
     context 'When fetching a book that exist with a rent that is not current' do
       let(:book) { create(:book) }
 
-      let!(:rent) { create(:rent, book: book, user: user, start_date: Time.zone.now - 20.months \
-        , end_date: Time.zone.now - 10.months) }
+      let!(:rent) do
+        create(:rent, book: book, user: user, start_date: Time.zone.now - 20.months \
+        , end_date: Time.zone.now - 10.months)
+      end
 
       before do
         get :show, params: { id: book.id }
