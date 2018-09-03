@@ -1,0 +1,27 @@
+# frozen_string_literal: true
+
+module Api
+  module V1
+    class RentsController < Api::V1::ApiController
+      include Wor::Paginate
+
+      def index
+        render_paginated User.find(params[:user_id]).rent
+      end
+
+      def create
+        @rent = Rent.new(create_params_sanitized)
+
+        if @rent.save
+          render json: @rent, status: :found
+        else
+          render json: @rent.errors.messages, status: :bad_request
+        end
+      end
+
+      def create_params_sanitized
+        params.require(:rent).permit(:user_id, :book_id, :start_date, :end_date)
+      end
+    end
+  end
+end
