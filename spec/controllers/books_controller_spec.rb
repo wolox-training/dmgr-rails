@@ -54,8 +54,10 @@ describe Api::V1::BooksController, type: :controller do
       let(:book) { create(:book) }
 
       let!(:rent) do
-        create(:rent, book: book, user: user, start_date: Time.zone.now - 20.months \
-        , end_date: Time.zone.now - 10.months)
+        create(:rent, book: book,
+                      user: user,
+                      start_date: Time.zone.now - 20.months,
+                      end_date: Time.zone.now - 10.months)
       end
 
       before do
@@ -75,8 +77,10 @@ describe Api::V1::BooksController, type: :controller do
       let(:book) { create(:book) }
 
       let!(:rent) do
-        create(:rent, book: book, user: user, start_date: Time.zone.now - 10.months \
-          , end_date: Time.zone.now + 10.months)
+        create(:rent, book: book,
+                      user: user,
+                      start_date: Time.zone.now - 10.months,
+                      end_date: Time.zone.now + 10.months)
       end
 
       before do
