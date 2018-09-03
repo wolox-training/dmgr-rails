@@ -56,6 +56,8 @@ group :development, :test do
   gem 'rubocop', '0.58.2'
   gem 'selenium-webdriver', '3.14.0'
   gem 'shoulda-matchers', '~> 3.1'
+  gem 'pry-rails'
+  gem 'awesome_print'
 end
 
 group :development do
