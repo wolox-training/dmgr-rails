@@ -13,14 +13,14 @@ FactoryBot.define do
   factory :user do
     first_name { Faker::Name.first_name }
     last_name { Faker::Name.last_name }
-    password { 123_123 }
-    password_confirmation { 123_123 }
+    password { Faker::Internet.password }
+    password_confirmation { password }
     email { Faker::Internet.email }
   end
 
   factory :rent do
-    user_id { Faker::Number.number(1000) }
-    book_id { Faker::Number.number(1000) }
+    user { create(:user) }
+    book { create(:book) }
     start_date { Faker::Time.between(Time.now.utc - 1000.months, Time.now.utc + 1000.months) }
     end_date { Faker::Time.between(Time.now.utc - 1000.months, Time.now.utc + 1000.months) }
   end
