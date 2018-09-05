@@ -10,14 +10,17 @@ module Api
       end
 
       def create
-        @rent = Rent.new(create_params_sanitized)
+        rent = Rent.new(create_params_sanitized)
 
-        if @rent.save
-          render json: @rent, status: :found
+        if rent.save
+          RentMailer.new_rent_notification(rent.id).deliver_later
+          render json: rent, status: :found
         else
-          render json: @rent.errors.messages, status: :bad_request
+          render json: rent.errors.messages, status: :bad_request
         end
       end
+
+      private
 
       def create_params_sanitized
         params.require(:rent).permit(:user_id, :book_id, :start_date, :end_date)
