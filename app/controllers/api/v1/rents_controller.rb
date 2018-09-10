@@ -6,12 +6,13 @@ module Api
       include Wor::Paginate
 
       def index
+        authorize params[:user_id], :is_logged_user?, policy_class: UserPolicy
         render_paginated User.find(params[:user_id]).rent
       end
 
       def create
         rent = Rent.new(create_params_sanitized)
-
+        authorize rent.user_id, :is_logged_user?, policy_class: UserPolicy
         if rent.save
           RentMailer.new_rent_notification(rent.id).deliver_later
           render json: rent, status: :found
