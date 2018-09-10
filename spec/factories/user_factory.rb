@@ -7,5 +7,6 @@ FactoryBot.define do
     password { Faker::Internet.password }
     password_confirmation { password }
     email { Faker::Internet.email }
+    locale { 'en' }
   end
 end

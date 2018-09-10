@@ -1,0 +1,5 @@
+<p> <%= t('.greeting', name: @rent.user.first_name) %> </p>
+<p> <%= t('.content_time', time: l(@rent.created_at)) %> </p>
+<p> <%= t('.content_title', title: @rent.book.title) %> </p>
+<p> <%= t('.content_dates', start_date: l(@rent.start_date), end_date: l(@rent.end_date)) %> </p>
+<p> <%= t('.content_goodbye') %> </p>
