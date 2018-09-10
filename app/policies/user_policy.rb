@@ -1,5 +1,7 @@
+# frozen_string_literal: true
+
 class UserPolicy < ApplicationPolicy
-  def is_logged_user?
-    user and record.to_i == user.id
+  def logged_user?
+    user && (record.to_i == user.id)
   end
 end
