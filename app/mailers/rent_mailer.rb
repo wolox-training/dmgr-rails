@@ -11,7 +11,7 @@ class RentMailer < ApplicationMailer
     I18n.with_locale(@rent.user.locale) do
       mail(
         to: @rent.user.email,
-        subject: default_i18n_subject
+        subject: t('.subject')
       )
     end
   end
