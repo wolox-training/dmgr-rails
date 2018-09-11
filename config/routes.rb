@@ -11,10 +11,9 @@ Rails.application.routes.draw do
   # For details on the DSL available within this file, see http://guides.rubyonrails.org/routing.html
   api_version(module: 'api/v1', path: { value: 'api/v1' }, defaults: { format: :json }) do
     resources :books, only: %i[index show]
+    resources :book_sugestions, only: %i[create]
     resources :users do
-
       resources :rents, only: %i[index create]
-
       collection do
         resources :sessions, only: [:create] do
           collection do
