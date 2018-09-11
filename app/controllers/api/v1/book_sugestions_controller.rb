@@ -18,7 +18,8 @@ module Api
       private
 
       def create_params_sanitized
-        params.require(:book_sugestion).permit(:editorial, :price, :author, :title, :link, :publisher, :year)
+        params.require(:book_sugestion)
+              .permit(:editorial, :price, :author, :title, :link, :publisher, :year)
       end
     end
   end
