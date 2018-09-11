@@ -8,9 +8,7 @@ module Api
 
       def create
         book_sugestion = BookSugestion.new(create_params_sanitized)
-        if current_user
-          book_sugestion.user_id = current_user.id
-        end
+        book_sugestion.user_id = current_user.id if current_user
         if book_sugestion.save
           render json: book_sugestion, status: :found
         else
