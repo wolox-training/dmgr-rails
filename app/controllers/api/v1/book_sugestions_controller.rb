@@ -4,6 +4,7 @@ module Api
   module V1
     class BookSugestionsController < Api::V1::ApiController
       include Wor::Paginate
+      skip_before_action :authenticate_request, only: [:create]
 
       def create
         book_sugestion = BookSugestion.new(create_params_sanitized)
