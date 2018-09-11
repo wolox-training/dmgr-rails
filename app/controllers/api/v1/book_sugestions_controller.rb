@@ -7,7 +7,9 @@ module Api
 
       def create
         book_sugestion = BookSugestion.new(create_params_sanitized)
-
+        if current_user
+          book_sugestion.user_id = current_user.id
+        end
         if book_sugestion.save
           render json: book_sugestion, status: :found
         else
@@ -19,7 +21,7 @@ module Api
 
       def create_params_sanitized
         params.require(:book_sugestion)
-              .permit(:editorial, :price, :author, :title, :link, :publisher, :year)
+              .permit(%i[editorial price author title link publisher year])
       end
     end
   end
