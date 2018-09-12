@@ -39,6 +39,12 @@ en:
       content_title: 'The book is: %{title}'
       content_dates: 'From %{start_date} to %{end_date}'
       content_goodbye: 'Thanks'
+    end_rent_notification:
+      subject: 'Your rent is ending!'
+      greeting: 'Hi %{name},'
+      content_time: 'A rent is about to end the %{end_date}'
+      content_title: 'The book is: %{title}'
+      content_goodbye: 'Thanks'
 
 
 # https://github.com/svenfuchs/rails-i18n/blob/master/rails/locale/en.yml

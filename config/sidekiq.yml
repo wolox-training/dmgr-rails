@@ -1,4 +1,7 @@
+:queues:
+ - default
+
 :schedule:
-  end_rent:
-    cron: '0 * * * * *'   # Runs once per minute
-    class: EndRent
+   end_rent_worker:
+     cron: '* * * * *'   # Runs once per minute
+     class: EndRentWorker

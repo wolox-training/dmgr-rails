@@ -4,8 +4,9 @@ class EndRentWorker
   include Sidekiq::Worker
 
   def perform
-    puts 'Hello world'
-    byebug
-    RentMailer.new_rent_notification(1).deliver_later
+    rents = Rent.where(end_date: Time.zone.tomorrow)
+    rents.each do |rent|
+        RentMailer.end_rent_notification(rent.id).deliver_later
+    end
   end
 end

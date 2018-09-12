@@ -7,6 +7,12 @@ es:
       content_title: 'El libro es: %{title}'
       content_dates: 'Del %{start_date} al %{end_date}'
       content_goodbye: 'Gracias'
+    end_rent_notification:
+      subject: 'Tu alquiler se esta terminando!'
+      greeting: 'Hola %{name},'
+      content_time: 'Un alquiler esta por terminar el %{end_date}'
+      content_title: 'El libro es: %{title}'
+      content_goodbye: 'Gracias'
 
 # taken from https://raw.githubusercontent.com/svenfuchs/rails-i18n/master/rails/locale/es-AR.yml
   activerecord:

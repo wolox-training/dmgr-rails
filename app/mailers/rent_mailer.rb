@@ -15,4 +15,14 @@ class RentMailer < ApplicationMailer
       )
     end
   end
+
+  def end_rent_notification(rent_id)
+    @rent = Rent.find(rent_id)
+    I18n.with_locale(@rent.user.locale) do
+      mail(
+        to: @rent.user.email,
+        subject: t('.subject')
+      )
+    end
+  end
 end
