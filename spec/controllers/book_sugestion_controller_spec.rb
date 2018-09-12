@@ -1,12 +1,10 @@
 require 'rails_helper'
 
 describe Api::V1::BookSugestionsController, type: :controller do
-  include_context 'Authenticated User'
   describe 'POST #create' do
     context 'When creating a valid book sugestion' do
-      let!(:new_book_sugestion_attributes) { title: FactoryBot::Name.name,
-                                             author: FactoryBot::Name.name,
-                                             link: FactoryBot::Internet.url}
+      let!(:new_book_sugestion_attributes) { FactoryBot.attributes_for(:book_sugestion) }
+
       it 'creates a new book sugestion' do
         expect do
           post :create, params: { book_sugestion: new_book_sugestion_attributes }
@@ -20,9 +18,8 @@ describe Api::V1::BookSugestionsController, type: :controller do
     end
 
     context 'When creating an invalid user rent' do
-      let!(:new_book_sugestion_attributes) { title: FactoryBot::Name.name,
-                                             author: nil,
-                                             link: FactoryBot::Internet.url}
+      let!(:new_book_sugestion_attributes) { FactoryBot.attributes_for(:book_sugestion, author: nil) }
+
       before do
           post :create, params: { book_sugestion: new_book_sugestion_attributes }
       end
@@ -34,7 +31,7 @@ describe Api::V1::BookSugestionsController, type: :controller do
       end
 
       it 'returns error messages' do
-        expect(response_body['error']).to be_present
+        expect(response.body['error']).to be_present
       end
 
       it 'responds with 422 status' do
