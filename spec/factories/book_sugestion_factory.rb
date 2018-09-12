@@ -3,7 +3,7 @@
 FactoryBot.define do
   factory :book_sugestion do
     editorial { Faker::HitchhikersGuideToTheGalaxy.location }
-    price { Faker::Number.decimal(2)}
+    price { Faker::Number.decimal(2) }
     author { Faker::Name.name }
     title { Faker::LordOfTheRings.location }
     link { Faker::Internet.url }
